@@ -506,7 +506,7 @@ const obj= {
 	name:'arjundas',
 	company:'aklsdj'
 }
-
+  
 dot and bracket
 
 //create a value in 2 ways         
