@@ -1,0 +1,930 @@
+coding
+
+//
+DIVISIBLE BY  2 IS                                   EVEN    i % 2 == 0
+NOT DIVISIBLE BY 2 IS                            ODD     i % 2 != 0
+DIVISIBLE BY 2 & NUMBER IT SELF IS       PRIME   i % 2 == 0  &  i % i ==0
+
+if u add / it will give quocent , not remaindr for remainder use %
+
+
+
+
+
+varabiles we created that are stored in ram not in harddisk
+python, js, thes are highlevel proraming languages for this we cannot get address of  the memory location/address
+c , c++ are low level language we will get memory location/address
+primitive datatypes are always -- copyByValue -- and it was disconnected --it was not connecting so we can say it was deepcopy
+
+n =19
+m =n 
+console.log(n)//19
+console.log(m)//19
+n=4
+console.log(n)//4
+console.log(m)//19
+
+non-primituve datatypes are --copybyreference -- it was not connected --so for disconnection we can use slice(0), spread operateor
+
+
+1.for in --  is good for objects  -- 
+2.for of --  is good for arrays
+
+
+1.how to create react app frontend
+2.how to connect back end node server and express server
+3.how to connect database
+4.how to connect frontend to backend
+5.how to connect backend to database
+
+
+
+
+															
+
+
+
+
+															//form
+1.<input id='tagname' type='text' value=''/>
+2. <label for='idname'></label>
+3. <input type="radio" name="gender" id="male" />male <!-- if u dont given name it will be not select or deselect-->
+   <input type="radio" name="gender" id="female" />female
+  
+4. <h2 id='female'></h2>
+
+	const femaleHandle = docement.getElementById('female')
+	femaleHandle.checked = true
+5.
+6. <input type='checkbox' checked={ele.isChecked} onChange={()=>{handleCheck(id,index)}/>
+	const handleCheck=()=>{
+		//code
+	}
+
+
+
+															//plain javascript
+	
+ 1.<h2 id="inname'></h2>
+	const student = document.getelementByid('inname')
+	student.innerHtml = `it is ${student.length}`  
+ 
+   0/p :- it is 6
+
+
+//questions
+1.validations, connecting express,db, constructre function, prototype, async await,scops,promise producing code to create a promise object 2.promise consuming code .then .catch,
+
+
+
+
+															//LOOPS - for , for-of, for-in
+
+const obj= { name:'abish',age: 33,  money: 4444,}
+const arrObj= [
+    {name:'abish',age: 33,money: 4444,},
+    {name:'krish',age: 3763,money: 644,},
+    {name:'rakes',age: 383,money: 7844,},
+]
+const str = 'abcdefghi'
+const array =['a','b','c',1,2,3,'d']
+
+
+//for loop
+for(let i= 0; i< 10; i++){
+    console.log('i',i)//
+}
+
+//FOR-IN
+//p-1
+for(let key in obj){
+    console.log('for-in-obj',obj) //
+    console.log('for-in-obj',key)// 
+    console.log('for-in-obj',obj[key])//
+    console.log('for-in-obj',obj.key) //
+}
+//p-2
+for(let key in arrObj){
+    console.log('for-in-arrayObj',arrObj)//
+    console.log('for-in-arrayObj',key)// 
+    console.log('for-in-arrayObj',arrObj[key])//
+    console.log('for-in-arrayObj',arrObj.key)//
+    console.log('for-in-arrayObj-5',arrObj[key].name)// 
+    console.log('for-in-arrayObj-5',arrObj[key]["name"])// 
+}
+//p-3
+for(let key in str){
+    console.log('for-in-string',key) //
+    console.log('for-in-string',str[key])//
+}
+//p-4
+for(let key in array){
+    console.log('for-in-array',key)//
+}
+
+//FOR-OF
+//p2-1
+// for(let key of obj){
+//     console.log('for-of-obj')//
+// }  // error -- obj is not ittreable  // obj.entries() also not work value not iterable for object
+//p2-2
+for(let key of arrObj){
+    console.log('for-of-Arryobj-key',key)//
+    console.log('for-of-Arryobj',arrObj[key])//
+    console.log('for-of-Arryobj',key.name)//
+    console.log('for-of-Arryobj',key["name"])//
+}
+//p2-3
+for(let key of str){
+    console.log('for-of-str',key)//
+}
+//p2-4
+for(let key of array){
+    console.log('for-of-array',key)//
+}
+//p2-5
+const price=['j',1,4,56,2,8,77]
+//Object.entries(price)) also use this type
+for(let [inex,char] of price.entries()){//without entries we cannot use it like this for Array
+    console.log('b',inex,char)
+} 
+//explanation:
+
+//p2-6
+const ent = Object.entries(obj)
+for(let key of ent){
+    console.log('j',ent,key,key[0]) //j [ [ 'name', 'abish' ], [ 'age', 33 ], [ 'money', 4444 ] ] [ 'name', 'abish' ]
+}
+
+
+
+
+
+
+
+															//HOISTING
+
+//EG-1
+console.log('1', a); 
+var a= 10
+
+
+function aa() {
+    var a = 20; 
+    console.log('2', a); 
+    return a;
+}
+console.log('3', a); 
+console.log('4withReturn',aa())
+console.log('5', a); 
+
+//EG-2
+console.log('1', a); 
+var a= 10
+
+function aa() {
+    var a = 20; 
+    console.log('2', a); 
+}
+
+console.log('3', a); 
+console.log('4withoutRetun',aa())
+console.log('5', a);
+
+
+//EG-3
+//console.log('let 0',b)
+let b= 32
+
+function bb(){
+    let b=7
+    console.log('let1',b)//
+    return b //if it not return bb() will be undefined
+}
+console.log('let2',b)//
+console.log('let3withReturn',bb())//
+//console.log('let3withOutReturn',bb())//
+console.log('let4',b)//
+
+//EG-4
+//const 
+//console.log('const',c) //
+const c=88
+
+function cc(){
+    const c=8
+    console.log('const1',c)//
+    return c
+}
+console.log('const2',c)//
+console.log('const3',cc())//
+console.log('const4',c)//
+
+//ex5
+fd()//
+
+function fd(){
+  console.log('jj')
+}
+
+//EG-6
+if (true) {
+    var x = 10;
+    let y = 20;
+    const z = 30;
+}
+console.log(x); // ?
+// console.log(y); // ?
+// console.log(z); // ?
+
+
+//ex-7
+var ao = 10;
+function test() {
+    console.log(ao); // ?
+    var ao = 20;
+}
+test();
+
+
+//EX-8
+var a1 = 10;
+function test() {
+    console.log(a1); // ?
+    var a1 = 20;
+}
+test();
+
+
+
+
+//ex-9
+let au = 10;
+function test() {
+    console.log(au); // ?
+    let au = 20;
+}
+test();
+
+
+//ex10
+for (var i = 0; i < 3; i++) {
+    setTimeout(() => console.log(i), 1000);
+}
+for (let j = 0; j < 3; j++) {
+    setTimeout(() => console.log(j), 1000);
+}
+
+
+
+//ex11
+let a222 = 10;
+{
+    //console.log(a222); // ?
+    let a222 = 20;
+}
+
+
+
+//ex12
+function test() {
+    if (false) {
+        var x = 10;
+    }
+    console.log(x); // ?
+}
+test();
+
+
+//ex13
+//const ar = 10;
+ar = 20; // ?
+
+
+//ex14
+
+//const myConst; // ?
+
+//EX-15
+let aa='ois'
+aa = 'alskd'
+aa = aa.split('l')
+console.log(aa)
+
+let jj
+console.log(jj)//
+console.log([].push(88,33)) //it will console only length not added values
+
+
+let a= [10,20] , b = [30,40]
+console.log(a+b)//
+console.log(typeof(a))//
+console.log(typeof(a + b))//
+
+
+//*
+															//SCOPS
+//1
+function f1(){
+    n = 100
+    console.log('n', n)//
+}
+f1()
+console.log('n', n)//
+
+
+//1.1
+function f11(){
+    const n1 = 100
+    console.log('n1',n1)//
+}
+f11()
+//console.log('n1',n1)//
+
+
+
+//2
+let n2=10
+function f2(){
+    n2 = 100
+    console.log('n2',n2)//
+}
+f2()
+console.log('n2',n2)//
+
+//2.2
+let n22=10
+function f22(){
+    let n22 = 100
+    console.log('n22',n22)//
+}
+f22()
+console.log('n22',n22)//
+
+//2.3
+const n23=10
+function f2(){
+     n23 = 100 
+    console.log('n23',n23)//
+ }
+f23()
+console.log('n23',n23)//
+
+
+//3
+var n3 =12
+function f3(){
+    n3 =55
+    console.log('f3',n3)//
+}
+f3()
+console.log('f3',n3)//
+//3.2
+var n32 =12
+function f32(){
+    var n32 =55
+    console.log('f32',n32)//
+}
+f32()
+console.log('f32',n32)//
+
+
+
+//4
+let n4=10
+function f4(){
+    const n4=33
+    console.log('f4',n4)//
+}
+f4()
+console.log('f4',n4)//
+
+
+
+//5
+function f5(d){
+    console.log('f5',d)
+}
+f5(22)
+//5.2
+function f52(d){
+    d = 44 
+    console.log('f52',d)
+}
+f52(22)
+//5.3
+function f523(d){
+     let d = 434 
+    console.log('f523',d) //
+ }
+ f523(22)
+
+//5.4
+function f524(d){
+    var d = 44 
+    console.log('f524',d)
+}
+f524(22)
+console.log('varf524',d) 
+
+//decleartion example
+//1
+ for( let i=0; i< 5; i++){
+     console.log(i)
+ }
+console.log('let,const',i) 
+
+//2
+for( var i=0; i< 5; i++){
+    //console.log(i)
+}
+console.log('var',i) //
+
+
+//3
+for( let i=0; i< 5; i++){
+    const n = i+ 5 //hear it is not re-assining it just creating new block for each ittration
+    console.log(i,n)
+}
+console.log('let',i) //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//02
+															//PASS BY VALUE & PASS BY REFERENCE
+
+
+
+
+
+
+//03
+															//NAN
+let data= 8*'8'
+console.log(Number.isNaN(data),data)
+
+let data1= 8*'f'
+console.log(Number.isNaN(data1),data1)
+
+let data2= 8+'8'
+console.log(Number.isNaN(data2),data2)
+
+let data3= 8+'ff'
+console.log(Number.isNaN(data3),data3)
+
+
+
+
+
+
+
+//04
+															// TYPEOF
+
+
+
+
+
+
+
+//05
+//EX-20
+															//OBJECTS
+const obj= {
+	id:1,
+	name:'arjundas',
+	company:'aklsdj'
+}
+
+dot and bracket
+
+//create a value in 2 ways         
+//get key and values in 2 ways 		-- 
+//update key & value in 2 ways
+//delete a value & key
+//access and get  only key 
+//access and get  only value 
+//how many was to find length of obj
+//find key present in  obj or not
+//find value present in obj or not
+//what is the output of print obj.length  
+//what is the use case of object.entries(obj)
+
+
+//coding
+//1
+//const data=[
+    {name: 'abc', bud:10},
+    {name: 'afabdc', bud:20},
+    {name: 'auhbc', bud:30}
+] //get total of bud use reduce method, for in, for ,map
+
+
+for(let key in obj){
+    console.log('for in',obj[key])//
+    console.log('for in2',obj.key)//
+}
+
+
+//2
+//hasOwnProperty , in
+console.log( data.hasOwnProperty('name'))//
+console.log('name' in obj) //
+
+//3
+//object.keys and values
+console.log(Object.keys(obj))
+console.log(Object.values(obj))
+
+//4
+const res= {
+	india : 2,
+	pak : 3,
+}
+console.log(Object.entries(res)) //
+
+//can we loop obj using for of
+//can we loop obj using for in 
+//how to loop obj using for of  //object.entries(obj) its for obj,
+
+//diffrent way for looping 
+ for(let [inex,char] of price.entries()){  //without entries we cannot use it like this for Array
+    console.log('b',inex,char)
+} //
+
+
+
+
+
+
+															//Math.
+Math.round()
+Math.floor()
+Math.celi()
+
+															//SETUP A WEB-SERVER USING NODE.JS
+
+
+															//express.
+
+															//mongodb
+
+															//TABLE 
+
+
+
+															//Event handlers
+
+<button onClick={()=>{handle3(ele)}}>click </button>
+const handle3 =(e)=>{
+        alert(e)
+    }
+
+
+
+
+
+
+//06
+															//ARRAY METHODS --nonmutating methods
+
+
+
+//forEach :-
+
+
+
+//find
+//1
+const da=[0,22,3,44]
+const m = da.find((ele)=>{
+    return ele > -1 
+}) 
+console.log('m',m)//
+
+//2
+const dm = da.find((ele)=>{ 
+    if(ele > -1){  
+        return ele   
+    }
+})
+console.log('dm',dm)//
+
+//3
+const dmd = da.find((ele)=>{ 
+    if(ele > -1){ 
+        return true 
+    }
+})
+console.log('dmd', dmd)//
+
+
+//find:-
+//01
+const fruits = [1,2,3,4,5,6,7,8]
+const res2 =fruits.find(function(ele){
+    if(ele > 2){
+        return true
+    }
+ })
+console.log('02',res2)//
+const res22 =fruits.find(function(ele){
+    if(ele > 200){
+        return true
+    }
+ })
+console.log('03',res22)//
+1.in return what it will print
+2.condition true --
+3.condition false -- 
+
+//02
+const da=[0,22,3,44]
+const m = da.find((ele)=>{  
+    return ele > -1 
+}) 
+console.log('04',m)
+const dm = da.find((ele)=>{
+    if(ele > -1){  
+        return ele   
+    }
+})
+console.log('05',dm)
+const dmd = da.find((ele)=>{ 
+    if(ele > -1){ 
+        return true     }
+})
+console.log('06',dmd)
+1.in return what it will print
+2.condition true --
+3.condition false -- 
+
+//03
+//filter
+const data=a.filter(function(ele){
+    if(ele.length > 4){
+        //console.log('e',ele)
+        return true //
+        return ele //
+    }
+})
+console.log('data',data)
+1.in return what it will print
+2.condition true --
+3.condition false -- 
+
+
+//04
+//map
+const arrObj=[
+    {id:1, name: 'abc', product:'asd', price:34},
+    {id:2, name: 'bcc', product:'asd', price:84},
+    {id:3, name: 'c', product:'asd', price:44},
+    {id:4, name: 'd', product:'asd', price:234},
+    {id:5, name: 'e', product:'asd', price:74},
+]
+const data2 = arrObj.map((ele)=>{
+    return ele.price > 50
+})
+console.log('map',data2)//
+const data22 = arrObj.map((ele)=>{	
+    if(ele.price > 50){
+        //return ele.price > 50
+        //return ele
+        //return ele.price
+        return true
+    }
+})
+console.log('map2',data22)
+1.in return what it will print
+2.condition true --
+3.condition false -- 
+
+//05
+//reduce
+const a= [30,20,30,20,50]
+const initialValue = 0
+const result =a.reduce(function(pre,curr){
+    return pre+curr
+},0)//we will but initialValue also
+console.log('with initialValue',result)
+
+//without initialValue
+const result2 =a.reduce(function(pre1,curr1){
+    return pre1+curr1
+})//if there is no initial vaule it will start index0 means at a[0]it will start
+console.log('without initialValue',result2)
+
+//eg
+const stock=[
+    {id:1, name:"abii", stock:22},
+    {id:2, name:"ad", stock:222},
+    {id:3, name:"absdii", stock:232}
+]
+
+function totalStock(arr){
+
+    const result3= arr.reduce(function(pre,curr){
+        console.log('obj',pre,curr)
+        return pre + curr.stock
+    },0)
+    return result3
+
+}
+
+console.log('stocke',totalStock(stock))
+
+
+
+
+
+
+
+//07
+															//Array Methods -- Mutating-methods
+
+let a= [1,'dd',2,3,4,'ad',5,6,'ff','ad','dd']
+let b='123456', c=456789
+
+//1 length
+console.log('a.length',a.length)//
+console.log('b.length',b.length)//
+console.log('at',a.at(1))//
+
+//2 toString
+console.log('a.toString',a.toString())//
+console.log('b.toString',b.toString())//
+console.log('c.toString',c.toString())//
+
+//3 push
+//original array change or not change
+console.log('push',a.push('mirchi'))//
+console.log('a',a)//original array doesn't change
+console.log('pop',a.pop())// 
+console.log('a',a)
+console.log('unshift',a.unshift('sita'))//
+console.log('a',a)
+console.log('shift',a.shift())//
+console.log('a',a)
+
+//4 slice
+//                    [1,2,3,4,5,6,'ff','ad','dd']
+//                     0 1 2 3 4 5   6    7   8 
+//is it change the original array or not ?
+console.log('slice1',a.slice(2))// 
+console.log('slice2',a.slice(-2))// 
+console.log('slice3',a.slice(-4,-1))//
+console.log('slice4',a.slice(2,4))// 
+console.log('slice5',a.slice(0,2))// 
+console.log('slice6',a.slice(2,0))// 
+console.log('slice6',a.slice(0,0))//
+console.log('a',a)// original array change or not
+
+//5 SPLICE -
+//it effects the original array or not
+console.log('a',a) // [1,2,3,4,5,6,'ff','ad','dd']
+//                     0 1 2 3 4 5   6    7   8 
+console.log('splice',a.splice(3,2,'3','33'))//  
+console.log('a',a)//
+console.log('splice',a.splice(1,1,'jjjj','jj'),a)//
+console.log('splice',a.splice(2,1),a) //
+
+//6 split -it converts string to array
+
+//b='11,11'
+console.log('split1',b.split())//
+console.log('split2',b.split(' '))//
+console.log('split3',b.split(','))//
+console.log('split4',b.split(''))//
+
+//let a='w alsd e'
+console.log(a.split())//
+console.log(a.split(''))//
+console.log(a.split(' '))//
+console.log(a.split(','))//
+
+//7 join
+//a=['11','1111']
+console.log('join',a.join())//  
+console.log('join',a.join(''))//  
+console.log('join',a.join(']'))//
+console.log('join',a.join(','))//
+
+//8 indexof
+//Array find and search methods
+//let a= [1,'jjjj',2,'3','33','ad',5,6,'ff','ad','dd']
+console.log('indexOF',a.indexOf('ad'))//  -     true= , false= 
+console.log('indexOF',a.lastIndexOf('ad'))// - true= , false= 
+console.log('indexOF',a.includes('ad'))// - true= , false= 
+
+
+//9 sorting
+d=['apple','aab','cat','bat'], e=[1,4,2,6,33,66,145], f=[1,'abc',2,'aa','aaaaa']
+console.log('sort',a.sort())//
+console.log('sort',d.sort())//
+console.log('sort',e.sort())/
+
+//10 example
+console.log('4',a.pop)//
+
+
+//5 concate
+let g=['123','234'], h=['abc','def'], i='123456'
+console.log('concat',g.concat(h))//
+console.log('concat',i.concat(h))//
+console.log('concat',g.concat(i))//
+
+
+
+//0.02
+															//stirng methods
+const a ="apple,banana,cherry"
+
+//1
+console.log('3',a.split(','))//[ 'apple','banana','cherry' ] seperated 
+//2
+console.log('1',a.split())//[ 'apple,banana,cherry' ] single array
+console.log('2',a.split(' '))//[ 'apple,banana,cherry' ] single array
+console.log('4',a.split('/'))//[ 'apple,banana,cherry' ] single array
+//3
+console.log('5',a.split(''))//[ 'a','p','p','l','e'] indiviual char
+
+//all
+const d='asdefaesdfa'
+console.log('1',d.split())//1 [ 'app,' ]
+console.log('2',d.split(''))//2  [ 'a', 'b', 'c', 'd', 'e' ]
+console.log('3',d.split(' '))//3 [ 'abcdeasdeasedf' ]
+console.log('4',d.split('e'))//4 [ 'abcd', 'asd', 'as', 'df' ]
+
+
+															//string methods
+let a2=' jhh7v765ui37yvhy '
+
+//length
+console.log('ength',a2.length)
+//toUppercase
+console.log('upperCase',a2.toUpperCase())
+//toLowerCase
+console.log('lowerCase',a2.toLowerCase())
+//charAt
+console.log('charAt',a2.charAt(3))
+//indexOf
+console.log('indexOf',a2.indexOf('7'))
+console.log('lastindexOf',a2.lastIndexOf('7'))
+//includes
+console.log('includes',a2.includes('8'))//
+console.log('includes',a2.includes('7'))//
+//startsWith
+console.log('startsWith',a2.startsWith('v'))//
+console.log('startsWith',a2.startsWith(' '))//
+//endsWith
+console.log('endsWith',a2.endsWith('t'))//
+console.log('endsWith',a2.endsWith(' '))//
+//subString
+console.log('substring',a2.substring(2,6))//
+//slice
+console.log('slice',a2.slice(2,3))//
+console.log('slice',a2.slice(2,-3))//
+console.log('slice',a2.slice(2,0))//
+console.log('slice',a2.slice(0,0))//
+//trim
+console.log('trim',a2.trim())//
+console.log(a2)//
+//replace
+console.log('replace',a2.replace('6','man'))
+//split
+//split a string to array
+let b2= '12345678'
+console.log('split1',b2.split())//
+console.log(b2)
+console.log('split2',b2.split(''))//
+console.log(b2)
+console.log('split3',b2.split(' '))//
+console.log('split4',b2.split(','))//
+//repeat
+console.log('repeat',a2.repeat(2))
+console.log('rep',a2)
+//concat 
+console.log('concat',a2.concat(b2))//
+console.log('concat',a2.concat(a2,b2))//
+//charCodeAt
+console.log('charCodeAt',a2.charCodeAt(3))
+//ReplaceAll
+//is it mutable or not
+console.log('replace',a2.replace('j','33'))
+console.log('rep',a2)
+console.log('replaceAll',a2.replaceAll('7','65'))
+console.log('repall',a2)
+
+

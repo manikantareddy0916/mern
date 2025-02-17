@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>welcome</h1>
+    <button onclick="handleClick()">Get student data</button>
+    <h2 id="studentData"></h2>
+    <h2 id="studentName"></h2>
+
+    <script>
+        function handleClick(){
+            const xhr = new XMLHttpRequest()
+            xhr.open('GET', 'http://localhost:3066/student')
+            xhr.send()
+            xhr.onload = function(){
+                const data = JSON.parse(xhr.responseText)
+                console.log(data)
+
+                const studentdata = document.getElementById('studentData')
+                const studentname = document.getElementById('studentName')
+                studentdata.innerHTML = `total - ${data.length}`
+                studentname.innerHTML = `ppl - ${data.map((ele)=>{
+                    return ele.id
+                })}`
+            }
+        }
+    </script>
+</body>
+</html>

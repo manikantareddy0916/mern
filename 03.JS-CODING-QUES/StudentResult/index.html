@@ -1,0 +1,65 @@
+<!-- frontend to backend xhr object -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result page</title>
+</head>
+<body>
+    <h1>Exam result page</h1>
+    <form onsubmit="formsubmit(event)">
+        <label for="texttag">Enter your Id : </label>
+        <input id='texttag' type="text" onfocus="handleFocus(event)"  /><br/>
+        <label>gender</label>
+        <input type="radio" name="gender" id="male" />male <!-- if u dont given name it will be not select or deselect-->
+        <input type="radio" name="gender" id="female" />female
+        <input type="submit"/>
+    </form>
+
+    <p id="errormsg"></p>
+    <h2 id="result"></h2>
+    <script>
+        
+        function handleFocus(e){
+                console.log('e',e.type)
+                const maleId = document.getElementById('male')
+                console.log('jk',maleId.checked)
+                if(! e.type == 'focus'){
+                    console.log('j')
+                }else{
+                    console.log('jj')
+                }
+            }
+
+           
+        function formsubmit(e){
+            console.log('e',e)
+            let idNum = e.target[0].value
+            e.preventDefault()
+
+
+            
+            const xhr = new XMLHttpRequest()
+            
+            xhr.open('GET', `https://api.restful-api.dev/objects/${idNum}`)
+            xhr.send()
+            xhr.onload = function(){
+                console.log('xhrd',JSON.parse(xhr.responseText))
+                const res = JSON.parse(xhr.responseText)
+                console.log('jj',res.name)
+                const errMsgHandle = document.getElementById('errormsg')
+                const resultHandle = document.getElementById('result')
+
+                
+                if(!(Object.keys(res).name != 'undefined')){
+                    errMsgHandle.innerHTML = 'result not found'
+                }else{
+                    console.log('j')
+                    resultHandle.innerHTML = `result - ${res.name}` 
+                }
+            }
+        }
+    </script>
+</body>
+</html>

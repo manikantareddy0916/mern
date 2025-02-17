@@ -1,0 +1,3 @@
+theam of the todo app
+1. todo edit, remove, send data to usestate, spread operator, props destructuring
+2. props from one component to another component
